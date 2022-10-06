@@ -1,3 +1,6 @@
+import 'package:authmethods/screens/login_email_password_screen.dart';
+import 'package:authmethods/screens/phone_screen.dart';
+import 'package:authmethods/screens/sign_up_email_pass.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,6 +18,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        SignUpScreen.routeName: (context) => const SignUpScreen(),
+        LoginScreen.routeName: (context) => const LoginScreen(),
+        PhoneScreen.routeName: (context) => const PhoneScreen(),
+      },
     );
   }
 }
