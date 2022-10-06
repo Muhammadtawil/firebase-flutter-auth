@@ -1,3 +1,5 @@
+import 'package:authmethods/services/firebase_auth_methods.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/customm_textfield.dart';
@@ -14,13 +16,13 @@ class _EmailPasswordLoginState extends State<EmailPasswordLogin> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  // void loginUser() {
-  //   context.read<FirebaseAuthMethods>().loginWithEmail(
-  //         email: emailController.text,
-  //         password: passwordController.text,
-  //         context: context,
-  //       );
-  // }
+  void loginUser() {
+    FirebaseAuthMethods(FirebaseAuth.instance).loginWithEmail(
+      email: emailController.text,
+      password: passwordController.text,
+      context: context,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +52,7 @@ class _EmailPasswordLoginState extends State<EmailPasswordLogin> {
           ),
           const SizedBox(height: 40),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: loginUser,
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(Colors.blue),
               textStyle: MaterialStateProperty.all(
